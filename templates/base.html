@@ -8,10 +8,11 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1"
     />
 
-    {% if config.generate_feed %} <link rel="alternate" type={% if
-    config.feed_filename == "atom.xml" %}"application/atom+xml"{% else
-    %}"application/rss+xml"{% endif %} title="RSS" href="{{
-    get_url(path=config.feed_filename) | safe }}"> {% endif %}
+    {% if config.generate_feed %}
+      {% for feed_filename in config.feed_filenames %}
+        <link rel="alternate" type={% if feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=feed_filename) | safe }}">
+      {% endfor %}
+    {% endif %}
 
     <title>~{% block title %}{% endblock title %}</title>
 

@@ -9,9 +9,9 @@ build_search_index = true
 
 minify_html = true
 
-generate_feed = true
+generate_feeds = true
 
-feed_filename = "atom.xml"
+feed_filenames = ["atom.xml"]
 
 title = "shurizzle"
 
